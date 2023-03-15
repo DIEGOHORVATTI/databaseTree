@@ -17,25 +17,18 @@ CREATE TABLE vendas_com_indices (
 );
 
 /*markdown
-Criando índice de mapa de bits para a coluna bitmap_idx_produtos
-CREATE INDEX idx_bitmap_produtos ON vendas(bitmap_idx_produtos)
+Criando índice de mapa de bits para a coluna bitmap_idx_produtos e bitmap_idx_clientes
 */
 
 CREATE INDEX idx_bitmap_produtos ON vendas_com_indices(bitmap_idx_produtos);
+CREATE INDEX bitmap_idx_clientes ON vendas_com_indices(bitmap_idx_clientes);
 
 /*markdown
-Criando índice de mapa de bits para a coluna bitmap_idx_clientes
-CREATE INDEX idx_bitmap_clientes ON vendas(bitmap_idx_clientes)
-*/
-
-CREATE INDEX idx_bitmap_clientes ON vendas_com_indices(bitmap_idx_clientes);
-
-/*markdown
-Inserindo dados fictícios na tabela de vendas com a linguagem C
+Fazendo tabela sem indice
 */
 
 CREATE TABLE vendas_sem_indices (
-  id_venda INT PRIMARY KEY,
+  id_venda INT,
   data_venda DATE,
   id_produto INT,
   id_cliente INT,

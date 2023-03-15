@@ -12,7 +12,7 @@
 #define user "root"
 
 #define db "IFC"
-#define table "vendas_com_indices"
+#define table_com_indices "vendas_com_indices"
 
 int main() {
     MYSQL *conn = mysql_init(NULL);
@@ -30,7 +30,7 @@ int main() {
     char *queries[MAX_rand];
     for (int i = 0; i < MAX_rand; i++) {
         char query[500];
-        snprintf(query, 500, "INSERT INTO %s (id_venda, data_venda, id_produto, id_cliente, valor_total, bitmap_idx_produtos, bitmap_idx_clientes) VALUES (%d, '2022-01-01', %d, %d, %f, 0x01, 0x01);", table, i+1, i+1, i+1, (i+1)*100.0);
+        snprintf(query, 500, "INSERT INTO %s (id_venda, data_venda, id_produto, id_cliente, valor_total, bitmap_idx_produtos, bitmap_idx_clientes) VALUES (%d, '2022-01-01', %d, %d, %f, 0x01, 0x01);", table_com_indices, i+1, i+1, i+1, (i+1)*100.0);
         queries[i] = strdup(query);
     }
 
