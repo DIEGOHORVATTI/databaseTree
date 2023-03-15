@@ -62,7 +62,7 @@ MYSQL* conn() {
     exit(1);
   }
   else {
-    printf("Database criada com sucesso!\n");
+    // printf("Database criada com sucesso!\n");
   }
 
   status = mysql_select_db(conn, CONFIG.db);
@@ -72,7 +72,7 @@ MYSQL* conn() {
     exit(1);
   }
 
-  printf("Conexão estabelecida com sucesso!\n");
+  // printf("Conexão estabelecida com sucesso!\n");
 
   free(query);
   return conn;
