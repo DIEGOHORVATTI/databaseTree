@@ -1,7 +1,7 @@
 #!/bin/bash
 
-main="sem_indices"
-
+main=$1
+clear
 rm -rf ./$main
 gcc -o $main $main.c -lmysqlclient
 ./$main
