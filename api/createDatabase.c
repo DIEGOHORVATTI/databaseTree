@@ -9,9 +9,6 @@
 
 int main() {
   MYSQL* CONN = conn();
-
-  mysql_query(CONN, "CREATE INDEX IF NOT EXISTS idx_bitmap_produtos ON vendas_com_indices(bitmap_idx_produtos);");
-  mysql_query(CONN, "CREATE INDEX IF NOT EXISTS bitmap_idx_clientes ON vendas_com_indices(bitmap_idx_clientes);");
   mysql_query(CONN, "CREATE TABLE IF NOT EXISTS vendas_com_indices \
       ( \
           id_venda INT PRIMARY KEY, \
@@ -23,6 +20,8 @@ int main() {
           bitmap_idx_clientes VARBINARY(1024) \
       ); \
   ");
+  mysql_query(CONN, "CREATE INDEX IF NOT EXISTS idx_bitmap_produtos ON vendas_com_indices(bitmap_idx_produtos);");
+  mysql_query(CONN, "CREATE INDEX IF NOT EXISTS bitmap_idx_clientes ON vendas_com_indices(bitmap_idx_clientes);");
 
   mysql_close(CONN);
   return 0;

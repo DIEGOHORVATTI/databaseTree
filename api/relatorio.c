@@ -6,6 +6,7 @@
 #include "./testTime.c"
 
 #define MAX_LEN 256
+#define pathFileJson "./public/data.json"
 
 void createDatabaseElement(double value, char* element, json_object* obj) {
   char output[MAX_LEN];
@@ -28,7 +29,7 @@ int main() {
 
   json_object* json;
   FILE* fp;
-  fp = fopen("./data.json", "r+");
+  fp = fopen(pathFileJson, "r+");
   if (fp == NULL) {
     json = json_object_new_object();
   }
@@ -51,13 +52,15 @@ int main() {
 
   createDatabaseElement(average, "resultFinal", json);
 
-  fp = fopen("./data.json", "w");
+  fp = fopen(pathFileJson, "w");
   if (fp == NULL) {
     printf("Não foi possível abrir o arquivo JSON.\n");
     exit(1);
   }
 
   fprintf(fp, "%s", json_object_to_json_string(json));
+  printf("json atualizado: %.2fms\n", average);
+
 
   fclose(fp);
   json_object_put(json);
