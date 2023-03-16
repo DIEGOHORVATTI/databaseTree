@@ -2,7 +2,7 @@
 
 main=$1
 clear
-rm -rf ./$main
-gcc -o $main $main.c -lmysqlclient -ljson-c
-./$main
-rm -rf ./$main
+rm -rf ./$main.bin
+gcc -o $main.bin $main.c -lmysqlclient -ljson-c
+./$main.bin
+rm -rf ./$main.bin

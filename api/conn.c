@@ -10,7 +10,6 @@ typedef struct {
   const char* db;
   const char* host;
   const char* user;
-  const char* table;
   const char* password;
 } db_config;
 
@@ -19,8 +18,7 @@ db_config CONFIG = {
   .port = 3306,
   .user = "root",
   .host = "localhost",
-  .password = "20020000",
-  .table = "vendas_com_indices"
+  .password = "20020000"
 };
 
 char* returnCreateDatabaseString() {
